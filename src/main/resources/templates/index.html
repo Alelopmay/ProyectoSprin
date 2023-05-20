@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<footer>
+	<p style="border: 1px solid black;  border-collapse: collapse;  width: 100%;  background-color: blue;  text-align: center; color: white" >Biblioteca Real</p>
+</footer>
+<head>
+	<meta charset="UTF-8">
+	<title>Blioteca spring boot</title>
+	<style>
+
+    table.custom-table tr:nth-child(odd) {
+      background-color: #f2f2f2; /* Establece el color de fondo de las filas impares */
+    }
+
+    table.custom-table tr:nth-child(even) {
+      background-color: #fff; /* Establece el color de fondo de las filas pares */
+    }
+  </style>
+</head>
+<body>
+	<header>
+	<h1>Biblioteca Crud con Spring boot</h1>
+		<p>Tabla Libros</p>
+		
+	</header>
+
+	<main>
+		
+	</main>
+	<hr>
+	<hr>
+	<div style="margin: 0 auto;  width: 60%;">
+
+	<table class="custom-table" style="border: 1px solid black;  border-collapse: collapse;  width: 100%;  background-color: #f2f2f2;  text-align: center;">
+		<thead>
+			<tr style="border: 1px solid black;  border-collapse: collapse;  width: 60%;  background-color: #f2f2f2;  text-align: center;">
+				<th>Id</th>
+				<th>Isbn</th>
+				<th>Titulo</th>
+				<th>Precio</th>
+			</tr>
+		</thead>
+		<tbody>
+		<a th:href="@{/agregar}" style="  background-color: green;  text-align: left; border: 1px solid green; margin-bottom: 10px;">Nuevo Registro</a>
+		
+			<tr th:each="libro:${Libros}">
+				<td th:text="${libro.id}"></td>
+				<td th:text="${libro.isbn}"></td>
+				<td th:text="${libro.titulo}"></td>
+				<td th:text="${libro.precio}"></td>
+				<td>
+				<td><a style="  background-color: orange;  text-align: left; border: 1px solid black;" th:href="@{/editar/} + ${libro.id}" th:text="Editar"></a></td>
+			<td>	<a style="  background-color: red;  text-align: left;border: 1px solid black;"  th:href="@{/eliminar/} + ${libro.id}" th:text="Eliminar"></a></td>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+		<hr>
+		<hr>
+	</div>
+	
+
+	<footer>
+		<p style="border: 1px solid black;  border-collapse: collapse;  width: 100%;  background-color: blue;  text-align: center; color: white" >Biblioteca Real</p>
+	</footer>
+</body>
+</html>
